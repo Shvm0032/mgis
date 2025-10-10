@@ -1,10 +1,13 @@
-export default function HomePage() {
+import HeroSection from "@/components/Home/HeroSection";
+import HomeVision from "@/components/Home/HomeVision";
+
+export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto p-8">
-      <h2 className="text-3xl font-bold mb-4">Welcome to MGIS</h2>
-      <p className="text-lg">
-        This is the home page of your Next.js project. You can add more sections here.
-      </p>
+    <div className="min-h-screen">
+      <main>
+        <HeroSection/>
+        <HomeVision/>
+      </main>
     </div>
   );
 }
