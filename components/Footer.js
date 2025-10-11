@@ -3,13 +3,20 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#111111] text-white relative">
+    <footer className="bg-[#111111] text-white relative ">
       {/* Red Top Banner - Half Over Footer */}
-      <div className="bg-[#d60a3c] px-4 py-8 rounded-b-lg max-w-6xl mx-auto relative -mt-16 z-10">
+      <div
+        className="ml-10 px-4 py-10 rounded-lg w-[90vw] mx-auto absolute mt-[-70px] z-50 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/Assets/cta.jpg')",
+          backgroundBlendMode: "overlay",
+      
+        }}
+      >
         <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
           <div>
-            <p className="text-sm">Free Online Courses</p>
-            <h2 className="text-2xl md:text-3xl font-bold">
+            <p className="text-sm text-white">Free Online Courses</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
               Enquiry Now about Admissions
             </h2>
           </div>

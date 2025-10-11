@@ -2,7 +2,13 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, Box, ArrowUp, ChevronDown, ChevronUp } from "lucide-react";
-import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+} from "react-icons/fa";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,18 +18,21 @@ export default function Header() {
   const menuItems = [
     {
       name: "Home",
-      href: "#",
+      href: "/",
       submenu: [
-        { name: "Submenu 1", href: "#" },
-        { name: "Submenu 2", href: "#" },
+        { name: "Our Vision", href: "#our-vision" },
+        { name: "Mission", href: "#mission" },
       ],
     },
     {
       name: "Abouts",
-      href: "#",
+      href: "/about-us",
       submenu: [
-        { name: "History", href: "#" },
-        { name: "Mission", href: "#" },
+        { name: "Achievement", href: "#" },
+        { name: "Mandatory Disclosure", href: "#" },
+        { name: "Fee Structure", href: "#" },
+        { name: "Annual Academic Calendar", href: "#" },
+        { name: "Examination", href: "#" },
       ],
     },
     { name: "Academics", href: "/academics" },
@@ -49,21 +58,56 @@ export default function Header() {
         {/* Top Bar */}
         <div className="bg-[#00306E] text-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center py-2 text-sm">
+            {/* Left Section - Contact Info */}
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 mb-2 sm:mb-0">
+              {/* Phone */}
               <div className="flex items-center gap-2">
                 <FaPhoneAlt />
-                <span>+91 12345 67890</span>
+                <a href="tel:+919933225511" className="hover:text-gray-300">
+                  +91-99332 25511
+                </a>
               </div>
+
+              {/* Email */}
               <div className="flex items-center gap-2">
                 <FaEnvelope />
-                <span>info@mgis.com</span>
+                <a
+                  href="mailto:mgispb@gmail.com"
+                  className="hover:text-gray-300"
+                >
+                  mgispb@gmail.com
+                </a>
               </div>
             </div>
 
+            {/* Right Section - Social Links */}
             <div className="flex items-center gap-3">
-              <a href="#" className="hover:text-gray-300"><FaFacebookF /></a>
-              <a href="#" className="hover:text-gray-300"><FaTwitter /></a>
-              <a href="#" className="hover:text-gray-300"><FaInstagram /></a>
+              <a
+                href="https://www.facebook.com/mgispb1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-300"
+              >
+                <FaFacebookF />
+              </a>
+
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-300"
+              >
+                <FaTwitter />
+              </a>
+
+              <a
+                href="https://www.instagram.com/mgis_pb/#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-300"
+              >
+                <FaInstagram />
+              </a>
             </div>
           </div>
         </div>
@@ -89,27 +133,28 @@ export default function Header() {
                 <div
                   key={idx}
                   className="relative"
-                  onMouseEnter={() => item.submenu && setActiveDropdown(item.name)}
+                  onMouseEnter={() =>
+                    item.submenu && setActiveDropdown(item.name)
+                  }
                   onMouseLeave={() => item.submenu && setActiveDropdown(null)}
                 >
-                  <button
+                  {/* Parent Link */}
+                  <a
+                    href={item.href}
                     className="flex items-center gap-1 text-gray-700 hover:text-[#00306E] font-medium transition-colors"
                   >
                     {item.name}
-                    {item.submenu && (
-                      activeDropdown === item.name ? (
+                    {item.submenu &&
+                      (activeDropdown === item.name ? (
                         <ChevronUp size={16} />
                       ) : (
                         <ChevronDown size={16} />
-                      )
-                    )}
-                  </button>
+                      ))}
+                  </a>
 
                   {/* Dropdown */}
                   {item.submenu && activeDropdown === item.name && (
-                    <div
-                      className="absolute left-0 top-full bg-white shadow-md mt-1 min-w-[160px] rounded overflow-hidden"
-                    >
+                    <div className="absolute left-0 top-full bg-white shadow-md mt-0 pt-5 pb-5 px-5 min-w-[200px] rounded overflow-hidden">
                       {item.submenu.map((sub, subIdx) => (
                         <a
                           key={subIdx}
@@ -156,13 +201,12 @@ export default function Header() {
                     className="flex justify-between items-center w-full text-gray-700 font-medium py-2"
                   >
                     {item.name}
-                    {item.submenu && (
-                      activeDropdown === item.name ? (
+                    {item.submenu &&
+                      (activeDropdown === item.name ? (
                         <ChevronUp size={18} />
                       ) : (
                         <ChevronDown size={18} />
-                      )
-                    )}
+                      ))}
                   </button>
 
                   {/* Mobile Dropdown */}

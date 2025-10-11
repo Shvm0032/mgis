@@ -4,7 +4,8 @@ import { ArrowRight } from "lucide-react";
 export default function HomeVision() {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat text-center text-white py-20 px-6 md:px-12"
+    id="our-vision"
+      className="relative scroll-mt-20 bg-cover bg-center bg-no-repeat text-center text-white py-20 px-6 md:px-12"
       style={{
         backgroundImage: "url('/Assets/home-slider/bg-vision.webp')", // ← apni image ka path yahan do
       }}

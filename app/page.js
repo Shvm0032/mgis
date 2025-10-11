@@ -1,5 +1,7 @@
 import HeroSection from "@/components/Home/HeroSection";
 import HomeVision from "@/components/Home/HomeVision";
+import HomeAbout from "@/components/Home/HomeAbout";
+import HomeMission from "@/components/Home/HomeMission";
 
 export default function Home() {
   return (
@@ -7,6 +9,8 @@ export default function Home() {
       <main>
         <HeroSection/>
         <HomeVision/>
+        <HomeAbout/>
+        <HomeMission/>
       </main>
     </div>
   );

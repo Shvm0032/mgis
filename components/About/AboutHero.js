@@ -9,33 +9,31 @@ export default function HeroSection() {
       id: 1,
       title: "Welcome To MGIS",
       subtitle: "Quality Education",
-      description:
-        "We at Mahatma Gandhi International School will provide quality education that ensures the physical, emotional, spiritual ,social and aesthetical development of the child in addition to academic excellence.",
-      image: "/Assets/home-slider/slider-1.jpeg",
+      image: "/Assets/about-slider/about-1.jpeg",
     },
     {
       id: 2,
       title: "Great Quality Education",
       subtitle: "",
-      description:
-        "Tapping the inherent  brilliance of every child to achieve academic excellence.",
-      image: "/Assets/home-slider/slider-2.jpeg",
+      image: "/Assets/about-slider/about-2.jpeg",
     },
     {
       id: 3,
-      title: "Welcome To MGIS",
-      subtitle: "Quality Education",
-      description:
-        "At MGIS we are committed to complete holistic education with focus on child development and growth of every student",
-      image: "/Assets/home-slider/slider-3.jpeg",
+      title: "Great Quality Education",
+      subtitle: "",
+      image: "/Assets/about-slider/about-3.jpg",
     },
     {
       id: 4,
       title: "Great Quality Education",
       subtitle: "",
-      description:
-        "At MGIS we are committed to complete holistic education with focus on child development and growth of every student.",
-      image: "/Assets/home-slider/slider-4.jpeg",
+      image: "/Assets/about-slider/about-4.jpeg",
+    },
+    {
+      id: 5,
+      title: "Great Quality Education",
+      subtitle: "",
+      image: "/Assets/about-slider/about-5.jpg",
     },
   ];
 
@@ -87,12 +85,7 @@ export default function HeroSection() {
                   <p className="text-base sm:text-lg text-gray-200 max-w-2xl">
                     {slide.description}
                   </p>
-                  <a
-                    href="#"
-                    className="inline-flex items-center gap-2 font-semibold transition-all duration-300"
-                  >
-                    Read More <ArrowRight className="w-5 h-5" />
-                  </a>
+                  
                 </motion.div>
               )}
             </AnimatePresence>
