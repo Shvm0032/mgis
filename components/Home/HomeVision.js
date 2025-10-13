@@ -29,14 +29,14 @@ export default function HomeVision() {
         <div className="w-20 h-[3px] bg-yellow-500 mx-auto my-6"></div>
 
         {/* Bold small description */}
-        <p className="text-md font-semibold  tracking-wide text-gray-600">
+        <p className="text-md font-semibold  tracking-wide text-gray-600 text-justify">
           Established in 2004, MGIS is a co-education, day scholar cum boarding
           school situated in Portblair, the capital city of the pristine
           archipelago of Andaman & Nicobar Islands.
         </p>
 
         {/* Paragraphs */}
-        <p className="text-gray-600 mt-6 leading-relaxed">
+        <p className="text-gray-600 mt-6 leading-relaxed text-justify">
           Tapping the inherent brilliance of every child to achieve academic
           excellence. Nurturing the individuality of every child and the growth
           of his spirit. Helping the child evolve as a thinking person with a
@@ -49,7 +49,7 @@ export default function HomeVision() {
           foundations beneath them.
         </p>
 
-        <p className="text-gray-600 mt-4 leading-relaxed">
+        <p className="text-gray-600 mt-4 leading-relaxed text-justify">
           Inspired by the ideas and vision of his parents, Late Shri Manmull
           Gulechha and Smt Anusuya Devi, Shri Jain has been instrumental in
           establishing Rajbai Anusuya Devi Gulechha Memorial Charitable Trust

@@ -54,7 +54,7 @@ export default function HomeMission() {
               <h3 className="text-xl font-semibold text-[#0A3874] mb-2">
                 {card.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed ">
                 {card.desc}
               </p>
             </div>

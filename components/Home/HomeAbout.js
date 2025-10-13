@@ -28,7 +28,7 @@ export default function AboutSection() {
           </div>
 
           {/* Right Text */}
-          <div className="space-y-6 text-gray-200 leading-relaxed ">
+          <div className="space-y-6 text-gray-200 leading-relaxed text-justify ">
             <p>
               MGIS offers classes from Lower Kindergarten to Grade XII. The curriculum followed by MGIS is prescribed by the Central Board of Secondary Education (CBSE), New Delhi. Mahatma Gandhi International School strives to provide quality education that ensures the physical, emotional, spiritual, social, and aesthetic development of the child in addition to academic excellence.
             </p>
