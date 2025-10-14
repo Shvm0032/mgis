@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function HeroSection() {
@@ -9,32 +8,27 @@ export default function HeroSection() {
       id: 1,
       title: "Welcome To MGIS",
       subtitle: "Quality Education",
-      image: "/Assets/about-slider/about-1.jpeg",
+      image: "/Assets/academy/slider11.jpeg",
     },
     {
       id: 2,
-      title: "Great Quality Education",
-      subtitle: "",
-      image: "/Assets/about-slider/about-2.jpeg",
+      title: "Welcome To MGIS",
+      subtitle: "Quality Education",
+      image: "/Assets/about-slider/about-4.jpeg",
     },
     {
       id: 3,
       title: "Great Quality Education",
       subtitle: "",
-      image: "/Assets/about-slider/about-3.jpg",
+      image: "/Assets/academy/slider12.jpeg",
     },
     {
       id: 4,
       title: "Great Quality Education",
       subtitle: "",
-      image: "/Assets/about-slider/about-4.jpeg",
+      image: "/Assets/academy/slider13.jpg",
     },
-    {
-      id: 5,
-      title: "Great Quality Education",
-      subtitle: "",
-      image: "/Assets/about-slider/about-5.jpg",
-    },
+    
   ];
 
   const [current, setCurrent] = useState(0);
@@ -45,7 +39,7 @@ export default function HeroSection() {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <section className="relative w-full h-[90vh] overflow-hidden">
@@ -64,7 +58,7 @@ export default function HeroSection() {
         >
           <div className="absolute inset-0 bg-black/30"></div>
 
-          {/* Slide Content with animation */}
+          {/* Slide Content */}
           <div className="relative z-30 max-w-4xl px-6 sm:px-10 lg:px-16 text-white h-full flex flex-col justify-center">
             <AnimatePresence mode="wait">
               {index === current && (
@@ -82,10 +76,6 @@ export default function HeroSection() {
                   <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-base sm:text-lg text-gray-200 max-w-2xl">
-                    {slide.description}
-                  </p>
-                  
                 </motion.div>
               )}
             </AnimatePresence>
@@ -99,11 +89,16 @@ export default function HeroSection() {
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`flex items-center gap-2 font-semibold transition-all duration-300 ${
-              current === index ? "text-yellow-400 text-xl" : "text-white/70"
+            className={`flex items-center gap-2  transition-all duration-300 ${
+              current === index
+                ? "text-yellow-400 text-xl"
+                : "text-white/60 hover:text-white"
             }`}
           >
-            <span className="w-8 h-[2px] bg-current"></span>
+            {/* Show dash only for active slide */}
+            {current === index && (
+              <span className="text-yellow-400 text-2xl">—</span>
+            )}
             <span>{index + 1}</span>
           </button>
         ))}
