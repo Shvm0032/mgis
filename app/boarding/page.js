@@ -4,7 +4,7 @@ import BoardingFacility from '@/components/Boarding/BoardingFacility';
 import BoardingAcc from '@/components/Boarding/BoardingAcc';
 
 
-export default function About() {
+export default function Boarding() {
   return (
     <div className="min-h-screen">
       <main>

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function HeroSection() {
+export default function AcademicHero() {
   const slides = [
     {
       id: 1,
