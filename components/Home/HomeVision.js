@@ -5,7 +5,7 @@ export default function HomeVision() {
   return (
     <section
     id="our-vision"
-      className="relative scroll-mt-20 bg-cover bg-center bg-no-repeat text-center text-white py-20 px-6 md:px-12"
+      className="relative scroll-mt-20 bg-cover bg-center bg-no-repeat text-center text-white py-15 px-6 md:px-12"
       style={{
         backgroundImage: "url('/Assets/home-slider/bg-vision.webp')", // ← apni image ka path yahan do
       }}

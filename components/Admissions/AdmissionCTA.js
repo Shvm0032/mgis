@@ -47,7 +47,7 @@ export default function AdmissionCTA() {
           <h2 className="text-4xl text-[#00306E] font-bold">
             Have Any Questions? Look Here.
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 sm:text-sm">
             The complete Registration Form must be sent along with the following
             documents.
           </p>
@@ -69,7 +69,7 @@ export default function AdmissionCTA() {
                 className="flex justify-between items-center px-4 py-3"
                 onClick={() => toggle(index)}
               >
-                <h3 className="font-semibold">{faq.question}</h3>
+                <h3 className="font-semibold sm:text-sm">{faq.question}</h3>
                 {openIndex === index ? (
                   <ChevronUp size={20} />
                 ) : (
@@ -77,7 +77,7 @@ export default function AdmissionCTA() {
                 )}
               </div>
               {openIndex === index && (
-                <div className="px-4 py-3 border-t border-gray-200 text-gray-700">
+                <div className="px-4 py-3 border-t border-gray-200 text-gray-700 sm:text-sm">
                   {faq.answer}
                 </div>
               )}

@@ -50,7 +50,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full h-[90vh] overflow-hidden">
+    <section className="relative w-full h-[70vh] md:h-[90vh] overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -66,8 +66,8 @@ export default function HeroSection() {
         >
           <div className="absolute inset-0 bg-black/30"></div>
 
-          {/* Slide Content with animation */}
-          <div className="relative z-30 max-w-4xl px-6 sm:px-10 lg:px-16 text-white h-full flex flex-col justify-center">
+          {/* Slide Content */}
+          <div className="relative z-30 max-w-4xl px-4 sm:px-10 lg:px-16 text-white h-full flex flex-col justify-center">
             <AnimatePresence mode="wait">
               {index === current && (
                 <motion.div
@@ -76,22 +76,22 @@ export default function HeroSection() {
                   animate={{ x: 0, opacity: 1 }}
                   exit={{ x: -200, opacity: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="space-y-4"
+                  className="space-y-2 sm:space-y-4"
                 >
-                  <p className="text-lg sm:text-xl text-yellow-400 font-semibold uppercase tracking-wider">
+                  <p className="text-sm sm:text-lg text-yellow-400 font-semibold uppercase tracking-wider">
                     {slide.subtitle}
                   </p>
-                  <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                  <h1 className="text-2xl sm:text-3xl lg:text-6xl font-bold leading-snug sm:leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-base sm:text-lg text-gray-200 max-w-2xl">
+                  <p className="text-xs sm:text-base text-gray-200 max-w-full sm:max-w-lg">
                     {slide.description}
                   </p>
                   <a
                     href="#"
-                    className="inline-flex items-center gap-2 font-semibold transition-all duration-300"
+                    className="inline-flex items-center gap-2 font-semibold text-sm sm:text-base transition-all duration-300"
                   >
-                    Read More <ArrowRight className="w-5 h-5" />
+                    Read More <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </a>
                 </motion.div>
               )}
@@ -101,8 +101,7 @@ export default function HeroSection() {
       ))}
 
       {/* Right Side Vertical Numbers */}
-      {/* Right Side Vertical Numbers */}
-      <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col items-end space-y-4 text-white z-40">
+      <div className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 flex flex-col items-end space-y-2 md:space-y-4 text-white z-40">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -111,12 +110,12 @@ export default function HeroSection() {
           >
             {/* Dash only for active slide */}
             {current === index && (
-              <span className="w-8 h-[2px] bg-yellow-400"></span>
+              <span className="w-5 md:w-8 h-[2px] bg-yellow-400"></span>
             )}
 
             <span
               className={`${
-                current === index ? "text-yellow-400 text-xl" : "text-white/70"
+                current === index ? "text-yellow-400 text-lg md:text-xl" : "text-white/70 text-sm md:text-base"
               }`}
             >
               {index + 1}

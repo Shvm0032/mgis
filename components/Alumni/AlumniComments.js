@@ -40,10 +40,10 @@ const testimonials = [
 function NextArrow({ onClick }) {
   return (
     <div
-      className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-[#DA2351] hover:bg-[#121938] text-white w-10 h-10 flex items-center justify-center rounded-full cursor-pointer z-20 transition"
+      className="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 bg-[#DA2351] hover:bg-[#121938] text-white w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full cursor-pointer z-20 transition"
       onClick={onClick}
     >
-      <ChevronRight size={22} />
+      <ChevronRight size={18} className="md:w-5 md:h-5" />
     </div>
   );
 }
@@ -51,10 +51,10 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
   return (
     <div
-      className="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-[#DA2351] hover:bg-[#121938] text-white w-10 h-10 flex items-center justify-center rounded-full cursor-pointer z-20 transition"
+      className="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 bg-[#DA2351] hover:bg-[#121938] text-white w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full cursor-pointer z-20 transition"
       onClick={onClick}
     >
-      <ChevronLeft size={22} />
+      <ChevronLeft size={18} className="md:w-5 md:h-5" />
     </div>
   );
 }
@@ -64,7 +64,7 @@ export default function AlumniComments() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // desktop
+    slidesToShow: 3, // 🖥️ Desktop
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -73,42 +73,48 @@ export default function AlumniComments() {
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 },
+        breakpoint: 1024, // 🧩 Tablets
+        settings: { slidesToShow: 2, slidesToScroll: 1, arrows: true },
       },
       {
-        breakpoint: 640,
-        settings: { slidesToShow: 1 },
+        breakpoint: 768, // 📱 Mobile
+        settings: { slidesToShow: 1, slidesToScroll: 1, arrows: false },
+      },
+      {
+        breakpoint: 480, // 📱 Small mobile devices
+        settings: { slidesToShow: 1, slidesToScroll: 1, arrows: false },
       },
     ],
   };
 
   return (
-    <section className="pt-16 pb-28 px-6 bg-[#FFFFFF] relative">
-      {/* Heading + Divider */}
-      <div className="text-center mb-10">
-        <h2 className="md:text-3xl text-2xl text-[#121938] font-bold mb-2">
+    <section className="pt-12 md:pt-16 pb-20 md:pb-28 px-4 sm:px-6 bg-[#FFFFFF] relative overflow-hidden">
+      {/* Heading */}
+      <div className="text-center mb-8 md:mb-10">
+        <h2 className="text-2xl sm:text-3xl text-[#121938] font-bold mb-2">
           What Our Past Students Say
         </h2>
-        <div className="w-28 h-1 bg-[#DA2351] mx-auto rounded-full"></div>
+        <div className="w-24 sm:w-28 h-1 bg-[#DA2351] mx-auto rounded-full"></div>
       </div>
 
-      {/* Slider Container (relative for arrows) */}
+      {/* Slider */}
       <div className="relative max-w-6xl mx-auto">
         <Slider {...settings}>
           {testimonials.map((t, index) => (
-            <div key={index} className="px-3">
-              <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col h-full">
-                <h3 className="text-xl text-[#121938] font-semibold mb-1">
+            <div key={index} className="px-2 sm:px-3">
+              <div className="bg-white p-5 sm:p-6 rounded-xl shadow-md sm:shadow-lg flex flex-col h-full">
+                <h3 className="text-lg sm:text-xl text-[#121938] font-semibold mb-1">
                   {t.name}
                 </h3>
-                <p className="text-[#DA2351] text-sm mb-3">{t.designation}</p>
-                <p className="text-gray-700 text-sm mb-4 flex-1">
+                <p className="text-[#DA2351] text-xs sm:text-sm mb-3">
+                  {t.designation}
+                </p>
+                <p className="text-gray-700 text-sm sm:text-base mb-4 flex-1 leading-relaxed">
                   {t.description}
                 </p>
                 <div className="flex">
                   {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="text-yellow-400 w-5 h-5" />
+                    <Star key={i} className="text-yellow-400 w-4 h-4 sm:w-5 sm:h-5" />
                   ))}
                 </div>
               </div>

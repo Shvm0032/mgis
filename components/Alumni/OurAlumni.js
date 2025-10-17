@@ -2,7 +2,7 @@
 
 export default function OurAlumni() {
   return (
-    <section className="py-16 px-6 bg-[#121938] text-white">
+    <section className="py-16 px-6 bg-[#121938] text-white overflow-hidden">
       <div className="max-w-6xl mx-auto space-y-10">
         {/* Top Subheading */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
@@ -18,18 +18,17 @@ export default function OurAlumni() {
         </h2>
 
         {/* Main Content */}
-        <div className="grid md:grid-cols-2 gap-10 items-stretch">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
           {/* Left Div - Image */}
           <div className="relative flex justify-center items-center">
-            {/* Top-left Red block */}
-            {/* Top-left Red block with black dots */}
+            {/* Top-left Red block with dots */}
             <div
-              className="absolute top-0 left-0 w-4/5 h-2/3 rounded-lg"
+              className="absolute top-0 left-0 w-[90%] h-[80%] rounded-lg"
               style={{
                 backgroundColor: "#D2093C",
                 backgroundImage:
-                  "radial-gradient(circle, white 1px, transparent 2px)",
-                backgroundSize: "10px 10px",
+                  "radial-gradient(circle, white 1.2px, transparent 1.8px)",
+                backgroundSize: "12px 12px",
               }}
             ></div>
 
@@ -40,12 +39,12 @@ export default function OurAlumni() {
             <img
               src="/Assets/academy/slider12.jpeg"
               alt="Alumni"
-              className="relative z-10 h-[250px] rounded-lg shadow-xl w-4/5 sm:w-3/4 md:w-full max-w-sm md:max-w-md -mt-10 -ml-5"
+              className="relative z-10 h-[280px] sm:h-[350px] w-[90%] sm:w-[80%] rounded-lg shadow-2xl object-cover translate-x-[-10px] translate-y-[15px]"
             />
           </div>
 
           {/* Right Div - Details */}
-          <div className="flex flex-col justify-center space-y-4 p-6">
+          <div className="flex flex-col justify-center space-y-4 p-4 sm:p-6">
             <div className="space-y-2">
               <p>
                 <span className="font-semibold">Name:</span> G Darshan Kumar
@@ -59,7 +58,7 @@ export default function OurAlumni() {
                 owns a Youtube Channel named DG)
               </p>
             </div>
-            <p className="text-gray-200 text-sm sm:text-base">
+            <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
               Few words about School:- School is the first and foremost place
               where children try to make new friends. Also, students will learn
               how to be a part of the team. MGIS was one of the best school days

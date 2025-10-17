@@ -17,7 +17,7 @@ export default function BoardingFacility() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6">
         {/* Left: Paragraph */}
         <div className="flex-1 flex items-center">
-          <p className="text-gray-700 text-md">
+          <p className="text-gray-700 text-md text-justify">
             MGIS is attached with an elegant boarding facilities for its
             students and teachers and build an ambience that fosters sound
             values, personal development and discipline. At MGIS, we offer

@@ -206,36 +206,47 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu */}
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200">
             <nav className="flex flex-col px-4 py-4 gap-2">
               {menuItems.map((item, idx) => (
                 <div key={idx}>
-                  <button
-                    onClick={() =>
-                      setActiveDropdown(
-                        activeDropdown === item.name ? null : item.name
-                      )
-                    }
-                    className="flex justify-between items-center w-full text-gray-700 font-medium py-2"
-                  >
-                    {item.name}
-                    {item.submenu &&
-                      (activeDropdown === item.name ? (
-                        <ChevronUp size={18} />
-                      ) : (
-                        <ChevronDown size={18} />
-                      ))}
-                  </button>
+                  {/* Parent menu - link + dropdown */}
+                  <div className="flex justify-between items-center w-full">
+                    <a
+                      href={item.href}
+                      className="flex-1 text-gray-700 font-medium py-2"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </a>
+                    {item.submenu && (
+                      <button
+                        onClick={() =>
+                          setActiveDropdown(
+                            activeDropdown === item.name ? null : item.name
+                          )
+                        }
+                        className="text-gray-700 p-2"
+                      >
+                        {activeDropdown === item.name ? (
+                          <ChevronUp size={18} />
+                        ) : (
+                          <ChevronDown size={18} />
+                        )}
+                      </button>
+                    )}
+                  </div>
 
                   {/* Mobile Dropdown */}
                   {item.submenu && activeDropdown === item.name && (
-                    <div className="pl-4">
+                    <div className="pl-4 flex flex-col gap-1">
                       {item.submenu.map((sub, subIdx) => (
                         <a
                           key={subIdx}
                           href={sub.href}
-                          className="block py-1 text-gray-600 hover:text-[#00306E]"
+                          className="block py-1 text-gray-600 hover:text-[#00306E] font-medium"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {sub.name}

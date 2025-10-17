@@ -19,10 +19,10 @@ export default function BoardingHero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl px-6">
-        <h1 className="text-5xl md:text-6xl text-[#F7DFAF] font-bold mb-6">
+        <h1 className="text-3xl md:text-5xl text-[#F7DFAF] font-bold mb-6">
           BOARDING
         </h1>
-        <p className="text-lg md:text-xl mb-8">
+        <p className="text-md md:text-xl mb-8">
           MGIS is attached with an elegant boarding facilities for its students
           and teachers and build an ambience that fosters sound values, personal
           development and discipline.

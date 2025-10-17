@@ -77,7 +77,7 @@ export default function Classes() {
           </div>
 
           {/* RIGHT SIDE (Blue Box) */}
-          <div className="bg-[#0059FF] text-white rounded-2xl p-10 flex flex-col justify-center md:col-span-1 h-full">
+          <div className="bg-[#00306E] text-white rounded-2xl p-10 flex flex-col justify-center md:col-span-1 h-full">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               School Timing
             </h2>
@@ -104,7 +104,7 @@ export default function Classes() {
             </h3><br/>
 
             {/* Divider */}
-            <div className="w-24 h-1 bg-[#0059FF] mb-6 mx-auto"></div>
+            <div className="w-24 h-1 bg-[#00306E] mb-6 mx-auto"></div>
 
             {/* Image */}
             <Image
@@ -136,7 +136,7 @@ export default function Classes() {
             </h3>
 
             {/* Divider */}
-            <div className="w-24 h-1 bg-[#0059FF] mb-1 mx-auto"></div>
+            <div className="w-24 h-1 bg-[#00306E] mb-1 mx-auto"></div>
 
             {/* Image */}
             <Image
