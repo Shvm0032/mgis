@@ -14,14 +14,15 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [hideTopBar, setHideTopBar] = useState(false);
 
   const menuItems = [
     {
       name: "Home",
       href: "/",
       submenu: [
-        { name: "Our Vision", href: "#our-vision" },
-        { name: "Mission", href: "#mission" },
+        { name: "Our Vision", href: "/#our-vision" },
+        { name: "Mission", href: "/#mission" },
       ],
     },
     {
@@ -45,9 +46,20 @@ export default function Header() {
 
   // Scroll detection
   useEffect(() => {
-    const handleScroll = () => setShowScrollTop(window.scrollY > 100);
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 100);
+      if (window.innerWidth < 640) {
+        setHideTopBar(window.scrollY > 50); // Mobile hide threshold
+      } else {
+        setHideTopBar(false); // Desktop always visible
+      }
+    };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll); // update on resize
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -56,7 +68,10 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 bg-white shadow-md">
         {/* Top Bar */}
-        <div className="bg-[#00306E] text-white">
+        <div
+          className={`bg-[#00306E] text-white transition-transform duration-300
+          ${hideTopBar ? "-translate-y-full" : "translate-y-0"} sm:translate-y-0`}
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center py-2 text-sm">
             {/* Left Section - Contact Info */}
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 mb-2 sm:mb-0">
