@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X } from "lucide-react";
@@ -7,41 +7,115 @@ import { X } from "lucide-react";
 export default function StudentActivities() {
   const [activeTab, setActiveTab] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [zoom, setZoom] = useState(1);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState(false);
+  const lastPosition = useRef({ x: 0, y: 0 });
 
   const tabs = [
     {
-      title: "Architecture",
+      title: "All",
       images: [
-        "/Assets/gallery/arch1.jpg",
-        "/Assets/gallery/arch2.jpg",
-        "/Assets/gallery/arch3.jpg",
+        "/Assets/activities/act-1.jpg",
+        "/Assets/activities/act-2.jpg",
+        "/Assets/activities/act-3.jpg",
+        "/Assets/activities/act-4.jpg",
+        "/Assets/activities/act-5.jpg",
+        "/Assets/racing/rac-1.jpg",
+        "/Assets/racing/rac-2.jpg",
+        "/Assets/racing/rac-3.jpg",
+        "/Assets/racing/rac-4.jpg",
+        "/Assets/parade/par-1.jpg",
+        "/Assets/parade/par-2.jpg",
+        "/Assets/parade/par-3.jpg",
+        "/Assets/parade/par-4.jpg",
+        "/Assets/activities/act-6.jpeg",
+        "/Assets/activities/act-7.jpg",
+        "/Assets/activities/act-8.jpg",
+        "/Assets/activities/act-9.jpeg",
+        "/Assets/activities/act-10.png",
+        "/Assets/racing/rac-5.jpg",
+        "/Assets/racing/rac-6.jpg",
+        "/Assets/racing/rac-7.jpg",
+        "/Assets/racing/rac-8.jpg",
+        "/Assets/parade/par-5.jpg",
+        "/Assets/parade/par-6.jpg",
+        "/Assets/parade/par-7.jpg",
+        "/Assets/parade/par-8.jpg",
       ],
     },
     {
-      title: "Interior",
+      title: "Racing",
       images: [
-        "/Assets/gallery/int1.jpg",
-        "/Assets/gallery/int2.jpg",
-        "/Assets/gallery/int3.jpg",
+        "/Assets/racing/rac-1.jpg",
+        "/Assets/racing/rac-2.jpg",
+        "/Assets/racing/rac-3.jpg",
+        "/Assets/racing/rac-4.jpg",
+        "/Assets/racing/rac-5.jpg",
+        "/Assets/racing/rac-6.jpg",
+        "/Assets/racing/rac-7.jpg",
+        "/Assets/racing/rac-8.jpg",
       ],
     },
     {
-      title: "Landscape",
+      title: "Parade",
       images: [
-        "/Assets/gallery/land1.jpg",
-        "/Assets/gallery/land2.jpg",
-        "/Assets/gallery/land3.jpg",
+        "/Assets/parade/par-1.jpg",
+        "/Assets/parade/par-2.jpg",
+        "/Assets/parade/par-3.jpg",
+        "/Assets/parade/par-4.jpg",
+        "/Assets/parade/par-5.jpg",
+        "/Assets/parade/par-6.jpg",
+        "/Assets/parade/par-7.jpg",
+        "/Assets/parade/par-8.jpg",
       ],
     },
     {
-      title: "Pool Design",
+      title: "Activities",
       images: [
-        "/Assets/gallery/pool1.jpg",
-        "/Assets/gallery/pool2.jpg",
-        "/Assets/gallery/pool3.jpg",
+        "/Assets/activities/act-1.jpg",
+        "/Assets/activities/act-2.jpg",
+        "/Assets/activities/act-3.jpg",
+        "/Assets/activities/act-4.jpg",
+        "/Assets/activities/act-5.jpg",
+        "/Assets/activities/act-6.jpeg",
+        "/Assets/activities/act-7.jpg",
+        "/Assets/activities/act-8.jpg",
+        "/Assets/activities/act-9.jpeg",
+        "/Assets/activities/act-10.png",
       ],
     },
   ];
+
+  // Handle zoom via scroll or pinch
+  const handleWheel = (e) => {
+    e.preventDefault();
+    setZoom((prev) => Math.min(Math.max(prev + e.deltaY * -0.001, 1), 3));
+  };
+
+  // Handle mouse drag for panning
+  const handleMouseDown = (e) => {
+    if (zoom === 1) return;
+    setDragging(true);
+    lastPosition.current = { x: e.clientX, y: e.clientY };
+  };
+
+  const handleMouseMove = (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - lastPosition.current.x;
+    const dy = e.clientY - lastPosition.current.y;
+    lastPosition.current = { x: e.clientX, y: e.clientY };
+    setPosition((prev) => ({ x: prev.x + dx, y: prev.y + dy }));
+  };
+
+  const handleMouseUp = () => setDragging(false);
+
+  // Reset zoom when closing
+  const handleClose = () => {
+    setSelectedImage(null);
+    setZoom(1);
+    setPosition({ x: 0, y: 0 });
+  };
 
   return (
     <section className="py-16 px-6 bg-white">
@@ -70,7 +144,7 @@ export default function StudentActivities() {
         ))}
       </div>
 
-      {/* Images */}
+      {/* Image Grid */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeTab}
@@ -98,7 +172,7 @@ export default function StudentActivities() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Modal for full image */}
+      {/* Modal */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -107,19 +181,32 @@ export default function StudentActivities() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <div className="relative max-w-3xl w-full">
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-3 right-3 text-white bg-black/50 p-2 rounded-full hover:bg-black transition"
-              >
-                <X size={24} />
-              </button>
-              <Image
+            {/* Close Button */}
+            <button
+              onClick={handleClose}
+              className="absolute top-3 right-3 md:top-6 md:right-6 text-white bg-black/60 p-2 rounded-full hover:bg-black transition z-50"
+            >
+              <X size={24} />
+            </button>
+
+            {/* Zoomable Image */}
+            <div
+              className="relative w-full max-w-5xl h-full flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing"
+              onWheel={handleWheel}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+            >
+              <motion.img
                 src={selectedImage}
-                alt="Large view"
-                width={1000}
-                height={700}
-                className="w-full h-auto rounded-lg object-contain"
+                alt="Zoomable"
+                className="rounded-lg select-none max-h-[85vh] object-contain"
+                style={{
+                  transform: `scale(${zoom}) translate(${position.x / zoom}px, ${position.y / zoom}px)`,
+                  transition: dragging ? "none" : "transform 0.2s ease",
+                }}
+                draggable="false"
               />
             </div>
           </motion.div>

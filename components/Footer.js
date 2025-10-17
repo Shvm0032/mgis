@@ -1,16 +1,23 @@
 "use client";
 import Image from "next/image";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="bg-[#111111] text-white relative ">
       {/* Red Top Banner - Half Over Footer */}
       <div
-        className="ml-10 px-4 py-10 rounded-lg w-[90vw] mx-auto absolute mt-[-70px] z-50 bg-cover bg-center"
+        className="ml-10 px-4 py-10 rounded-lg w-[90vw] mx-auto absolute mt-[-70px] z-10 bg-cover bg-center"
         style={{
           backgroundImage: "url('/Assets/cta.jpg')",
           backgroundBlendMode: "overlay",
-      
         }}
       >
         <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
@@ -74,27 +81,61 @@ export default function Footer() {
 
         {/* Newsletter */}
         <div>
-          <h3 className="font-bold text-lg mb-4">Newsletter</h3>
-          <p className="text-gray-300 mb-4">
-            Get the latest Echooling news delivered to your inbox
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-4 py-2 rounded text-white w-full sm:w-auto border border-white"
-            />
-            <button className="px-6 py-2 bg-[#d60a3c] text-white rounded hover:bg-white hover:text-[#d60a3c] transition">
-              Subscribe
-            </button>
+          <h3 className="font-bold text-lg mb-6">Contact Information</h3>
+
+          {/* Phone */}
+          <div className="flex items-center gap-3 mb-3">
+            <div className="bg-white text-[#0E293E] p-2 rounded-full flex items-center justify-center">
+              <FaPhone className="text-md" />
+            </div>
+            <a
+              href="tel:+919933225511"
+              className="text-gray-300 hover:text-[#d60a3c] transition"
+            >
+              +91-99332 25511
+            </a>
           </div>
+
+          {/* Email */}
+          <div className="flex items-center gap-3 mb-3">
+            <div className="bg-white text-[#0E293E] p-2 rounded-full flex items-center justify-center">
+              <FaEnvelope className="text-md" />
+            </div>
+            <a
+              href="mailto:mgispb@gmail.com"
+              className="text-gray-300 hover:text-[#d60a3c] transition"
+            >
+              mgispb@gmail.com
+            </a>
+          </div>
+
+          {/* Address */}
+          <div className="flex items-center gap-3 mb-4">
+            <div className="bg-white text-[#0E293E] p-2 rounded-full flex items-center justify-center">
+              <FaMapMarkerAlt className="text-md" />
+            </div>
+            <p className="text-gray-300">
+              Mahatma Gandhi International School, Chakkargaon Post,
+              Brookshabad, Port Blair, Andaman and Nicobar Islands.
+            </p>
+          </div>
+
+          {/* Social Icons */}
+         
         </div>
       </div>
 
       {/* Footer Bottom */}
       <div className="border-t border-gray-700 py-4 text-center text-gray-100 text-sm">
-        &copy; {new Date().getFullYear()} @2022 Mahatma Gandhi International
-        School. Design & Developed by RankMantra
+        &copy; 2022 Mahatma Gandhi International School. Design & Developed by{" "}
+        <a
+          href="https://rankmantra.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#D91142] hover:text-white font-semibold hover:underline transition-colors"
+        >
+          RankMantra
+        </a>
       </div>
     </footer>
   );
