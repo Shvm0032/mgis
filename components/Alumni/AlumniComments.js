@@ -1,11 +1,21 @@
-"use client";
+// components/TestimonialSlider.jsx
+'use client';
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
-const testimonials = [
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+
+const AlumniComments = () => {
+  const swiperRef = useRef(null);
+
+  // Sample testimonial data
+ const testimonials = [
   {
     name: "Aman Verma",
     designation: "Student",
@@ -36,92 +46,154 @@ const testimonials = [
   },
 ];
 
-// 🔹 Custom Arrow Components
-function NextArrow({ onClick }) {
-  return (
-    <div
-      className="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 bg-[#DA2351] hover:bg-[#121938] text-white w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full cursor-pointer z-20 transition"
-      onClick={onClick}
-    >
-      <ChevronRight size={18} className="md:w-5 md:h-5" />
-    </div>
-  );
-}
-
-function PrevArrow({ onClick }) {
-  return (
-    <div
-      className="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 bg-[#DA2351] hover:bg-[#121938] text-white w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full cursor-pointer z-20 transition"
-      onClick={onClick}
-    >
-      <ChevronLeft size={18} className="md:w-5 md:h-5" />
-    </div>
-  );
-}
-
-export default function AlumniComments() {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3, // 🖥️ Desktop
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024, // 🧩 Tablets
-        settings: { slidesToShow: 2, slidesToScroll: 1, arrows: true },
-      },
-      {
-        breakpoint: 768, // 📱 Mobile
-        settings: { slidesToShow: 1, slidesToScroll: 1, arrows: false },
-      },
-      {
-        breakpoint: 480, // 📱 Small mobile devices
-        settings: { slidesToShow: 1, slidesToScroll: 1, arrows: false },
-      },
-    ],
+  // Render star ratings
+  const renderStars = (rating) => {
+    return (
+      <div className="flex">
+        {[...Array(5)].map((_, i) => (
+          <svg 
+            key={i}
+            className={`w-4 h-4 ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        ))}
+      </div>
+    );
   };
 
   return (
-    <section className="pt-12 md:pt-16 pb-20 md:pb-28 px-4 sm:px-6 bg-[#FFFFFF] relative overflow-hidden">
-      {/* Heading */}
-      <div className="text-center mb-8 md:mb-10">
-        <h2 className="text-2xl sm:text-3xl text-[#121938] font-bold mb-2">
-          What Our Past Students Say
+    <section className="pt-12 pb-32 bg-gray-50 overflow-hidden">
+      <div className="container mx-auto px-4">
+        {/* Heading */}
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
+          What Our Alumni Say
         </h2>
-        <div className="w-24 sm:w-28 h-1 bg-[#DA2351] mx-auto rounded-full"></div>
+        
+        {/* Divider */}
+        <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
+        
+        {/* Swiper Slider */}
+        <div className="relative">
+          <Swiper
+            ref={swiperRef}
+            modules={[Autoplay, Navigation, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+            pagination={{
+              el: '.swiper-pagination',
+              clickable: true,
+            }}
+            className="testimonial-swiper"
+          >
+            {testimonials.map((testimonial) => (
+              <SwiperSlide key={testimonial.id}>
+                <div className="bg-white rounded-lg shadow-md p-6 h-full flex flex-col mx-2">
+                  {/* Name and Designation */}
+                  <div className="mb-4">
+                    <h3 className="text-lg font-semibold text-[#00306E]">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-sm text-[#D30B3C]">
+                      {testimonial.designation}
+                    </p>
+                  </div>
+                  
+                  {/* Description */}
+                  <p className="text-gray-700 text-justify text-sm mb-4 flex-grow">
+                    {testimonial.description}
+                  </p>
+                  
+                  {/* Rating */}
+                  <div className="mt-auto">
+                    {renderStars(testimonial.rating)}
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Custom Navigation Buttons */}
+          <button 
+            className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 focus:outline-none z-10 -ml-4"
+            aria-label="Previous testimonial"
+          >
+            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button 
+            className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 focus:outline-none z-10 -mr-4"
+            aria-label="Next testimonial"
+          >
+            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Custom Pagination */}
+          <div className="swiper-pagination flex justify-center mt-6 space-x-2"></div>
+        </div>
       </div>
 
-      {/* Slider */}
-      <div className="relative max-w-6xl mx-auto">
-        <Slider {...settings}>
-          {testimonials.map((t, index) => (
-            <div key={index} className="px-2 sm:px-3">
-              <div className="bg-white p-5 sm:p-6 rounded-xl shadow-md sm:shadow-lg flex flex-col h-full">
-                <h3 className="text-lg sm:text-xl text-[#121938] font-semibold mb-1">
-                  {t.name}
-                </h3>
-                <p className="text-[#DA2351] text-xs sm:text-sm mb-3">
-                  {t.designation}
-                </p>
-                <p className="text-gray-700 text-sm sm:text-base mb-4 flex-1 leading-relaxed">
-                  {t.description}
-                </p>
-                <div className="flex">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="text-yellow-400 w-4 h-4 sm:w-5 sm:h-5" />
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
+      {/* Custom CSS for Swiper */}
+      <style jsx>{`
+        .testimonial-swiper {
+          padding: 20px 0;
+        }
+        
+        .swiper-pagination-bullet {
+          width: 12px;
+          height: 12px;
+          background: #d1d5db;
+          opacity: 1;
+          margin: 0 4px;
+        }
+        
+        .swiper-pagination-bullet-active {
+          background: #3b82f6;
+        }
+        
+        .swiper-button-next,
+        .swiper-button-prev {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        
+        @media (max-width: 768px) {
+          .swiper-button-next,
+          .swiper-button-prev {
+            display: none;
+          }
+        }
+      `}</style>
     </section>
   );
-}
+};
+
+export default AlumniComments;

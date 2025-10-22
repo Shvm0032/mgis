@@ -31,7 +31,7 @@ export default function OurInspiration() {
         </div>
 
         {/* Right Side - Image */}
-        <div className="relative w-full h-[600px] rounded-lg overflow-hidden shadow-lg">
+        <div className="relative w-full  h-[300px] md:h-[600px] rounded-lg overflow-hidden shadow-lg">
           <Image
             src="/Assets/about-slider/inspiration.jpeg" 
             alt="School Building"

@@ -1,7 +1,7 @@
 export default function AlumniConnect() {
   return (
     <>
-      <section className="pt-15 pb-20 px-6 bg-white">
+      <section className="pt-15 pb-20 px-6 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto text-center">
           {/* Subheading */}
           <h4 className="text-red-600 font-semibold mb-2">
