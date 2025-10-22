@@ -14,7 +14,7 @@ export default function Footer() {
     <footer className="bg-[#111111] text-white relative">
       {/* Red Top Banner - Half Over Footer */}
       <div
-        className="mx-auto px-4 py-8 md:py-10 rounded-lg w-[90%] md:w-[90vw] flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left absolute left-1/2 transform -translate-x-1/2 md:mt-[-70px] mt-[-50px] z-10 bg-cover bg-center"
+        className="mx-auto mb-10 px-4 py-8 md:py-10 rounded-lg w-[90%] md:w-[90vw] flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left absolute left-1/2 transform -translate-x-1/2 md:mt-[-70px] mt-[-100px] z-10 bg-cover bg-center"
         style={{
           backgroundImage: "url('/Assets/cta.jpg')",
           backgroundBlendMode: 'overlay',
