@@ -20,7 +20,7 @@ export default function AdmissionHero() {
   }, [slides.length]);
 
   return (
-    <section className="relative w-full h-[70vh] md:h-[90vh] overflow-hidden">
+    <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div

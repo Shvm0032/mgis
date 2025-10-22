@@ -48,7 +48,7 @@ export default function StructureHero() {
   }, [slides.length]);
 
   return (
-    <section className="relative w-full h-[90vh] overflow-hidden">
+    <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
