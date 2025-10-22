@@ -64,7 +64,7 @@ export default function StudentHero() {
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`flex items-center gap-1 md:gap-2 transition-all duration-300 ${current === index ? "text-yellow-400 text-lg md:text-xl" : "text-white/60 hover:text-white"}`}
+            className={`flex items-center gap-1 md:gap-2 cursor-pointer transition-all duration-300 ${current === index ? "text-yellow-400 text-lg md:text-xl" : "text-white/60 hover:text-white"}`}
           >
             {current === index && <span className="text-yellow-400 text-xl md:text-2xl">—</span>}
             <span className="text-sm md:text-base">{index + 1}</span>

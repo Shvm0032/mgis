@@ -85,7 +85,6 @@ export default function HeroSection() {
                   <p className="text-base sm:text-lg text-gray-200 max-w-2xl">
                     {slide.description}
                   </p>
-                  
                 </motion.div>
               )}
             </AnimatePresence>
@@ -99,11 +98,14 @@ export default function HeroSection() {
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`flex items-center gap-2 font-semibold transition-all duration-300 ${
+            className={`flex items-center gap-2 font-semibold cursor-pointer transition-all duration-300 ${
               current === index ? "text-yellow-400 text-xl" : "text-white/70"
             }`}
           >
-            <span className="w-8 h-[2px] bg-current"></span>
+            {/* Show dash only for active slide */}
+            {current === index && (
+              <span className="w-8 h-[2px] bg-current"></span>
+            )}
             <span>{index + 1}</span>
           </button>
         ))}

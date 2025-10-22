@@ -64,7 +64,7 @@ export default function AcademicHero() {
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`flex items-center gap-1 sm:gap-2 md:gap-3 px-2 py-1 sm:py-2 transition-all duration-300 rounded hover:bg-white/10 ${
+            className={`flex items-center gap-1 sm:gap-2 md:gap-3 cursor-pointer px-2 py-1 sm:py-2 transition-all duration-300 rounded hover:bg-white/10 ${
               current === index
                 ? "text-yellow-400 text-base sm:text-lg md:text-xl"
                 : "text-white/60 text-sm sm:text-base md:text-lg hover:text-white"

@@ -65,7 +65,7 @@ export default function AlumniHero() {
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`flex items-center gap-1 sm:gap-2 transition-all duration-300 ${
+            className={`flex items-center gap-1 sm:gap-2 cursor-pointer transition-all duration-300 ${
               current === index ? "text-yellow-400 text-base sm:text-lg md:text-xl" : "text-white/60 hover:text-white text-sm sm:text-base"
             }`}
           >

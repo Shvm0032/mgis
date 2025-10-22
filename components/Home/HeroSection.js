@@ -106,7 +106,7 @@ export default function HeroSection() {
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className="flex items-center gap-2 font-semibold transition-all duration-300"
+            className="flex items-center gap-2 font-semibold cursor-pointer transition-all duration-300"
           >
             {/* Dash only for active slide */}
             {current === index && (
