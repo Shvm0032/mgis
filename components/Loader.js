@@ -12,7 +12,10 @@ export default function Loader() {
   if (!loading) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white w-screen h-screen overflow-hidden">
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-white overflow-hidden"
+      style={{ height: '100svh', width: '100vw' }} // Full viewport on mobile
+    >
       <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36">
         
         {/* Outer Spinner */}
