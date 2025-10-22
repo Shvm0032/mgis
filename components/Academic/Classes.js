@@ -18,7 +18,7 @@ export default function Classes() {
             </div>
 
             {/* Paragraph */}
-            <p className="text-gray-700 text-base md:text-md leading-relaxed mb-6">
+            <p className="text-gray-700 text-justify text-base md:text-md leading-relaxed mb-6">
               At this stage too, the curriculum supports experiential learning,
               focuses on conceptual clarity by relating learning to everyday
               life, developing thinking and analytical skills. The curriculum
@@ -37,7 +37,7 @@ export default function Classes() {
             </h3>
 
             {/* Ordered List */}
-            <ol className="list-decimal list-inside text-gray-700 text-base md:text-md leading-relaxed space-y-2 mb-6">
+            <ol className="list-decimal text-justify list-inside text-gray-700 text-base md:text-md leading-relaxed space-y-2 mb-6">
               <li>
                 Languages (English, Hindi) – Acquire the skills of listening,
                 speaking, reading & writing, acquire varied range of vocabulary,
@@ -63,13 +63,13 @@ export default function Classes() {
             </ol>
 
             {/* Two Paragraphs */}
-            <p className="text-gray-700 text-base md:text-md leading-relaxed mb-4">
+            <p className="text-gray-700 text-justify text-base md:text-md leading-relaxed mb-4">
               Children also get opportunities to join various hobby clubs as per
               their interest and aptitude. They participate in intra-section and
               inter-section competitions, class assemblies, annual days
               celebrations and social awareness campaigns.
             </p>
-            <p className="text-gray-700 text-base md:text-md leading-relaxed">
+            <p className="text-gray-700 text-justify text-base md:text-md leading-relaxed">
               The scheme of Continuous and Comprehensive Evaluation (CCE), as
               designed and laid out by the CBSE & NCERT, is followed in the
               Junior School. Formal test & Exams are introduced in Class III.
@@ -149,7 +149,7 @@ export default function Classes() {
             />
 
             {/* School Timing */}
-            <p className="text-base md:text-lg text-gray-800 font-semibold">
+            <p className="text-base text-justify md:text-lg text-gray-800 font-semibold">
               Note: Work Experience, Art Education, Physical Education and
               Sports are also compulsory for the students. School Timing – Mon
               to Sat -7.45 am to 2.15 pm

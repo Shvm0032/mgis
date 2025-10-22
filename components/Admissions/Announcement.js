@@ -18,7 +18,7 @@ export default function Announcement() {
           </div>
 
           {/* Paragraph */}
-          <p className="text-gray-600 mb-6 leading-relaxed text-sm sm:text-base">
+          <p className="text-gray-600 text-justify mb-6 leading-relaxed text-sm sm:text-base">
             MGIS entry is open to all qualified students at all grade levels and
             full residential students are admitted from grade 3. The academic
             year begins in April and admission forms are available in the month

@@ -34,13 +34,13 @@ export default function SchoolTiming() {
           </div>
 
           {/* Paragraph */}
-          <p className="text-gray-700 text-base md:text-md leading-relaxed mb-6">
+          <p className="text-gray-700 text-base text-justify md:text-md leading-relaxed mb-6">
             Learning at this stage is experiential, fun & activity based. The pedagogical processes followed are based on developmentally appropriate methods with multiple teaching and learning strategies. The child is the central figure and an active participant in the teaching learning process. Children enjoy the freedom to explore, express, create and interact within their environment and gain knowledge.<br/>
             Children at this stage:
           </p>
 
           {/* List */}
-          <ul className="text-gray-600 text-base md:text-md leading-relaxed list-disc list-inside space-y-2 mb-6">
+          <ul className="text-gray-600 text-justify text-base md:text-md leading-relaxed list-disc list-inside space-y-2 mb-6">
             <li>identify self by specific abilities, characteristics and preferences (e.g., by gender, age, as part of a family, friends, colours, food etc.)</li>
             <li>develop a sense of balance and physical coordination through play.</li>
             <li>learn language through activities like role play, storytelling, poetry recitation, singing and reading age appropriate and level based books.</li>
@@ -52,10 +52,10 @@ export default function SchoolTiming() {
             <li> demonstrate the ability to begin to assume responsibility for their own safety within their environment.</li>
             <li> learn values, life skills, build relationships and grow up as confident and responsible citizens.</li>
           </ul>
-          <p className="text-gray-700 text-base md:text-md leading-relaxed mb-6">At this stage, there is no system of formal assessment.</p>
+          <p className="text-gray-700 text-justify text-base md:text-md leading-relaxed mb-6">At this stage, there is no system of formal assessment.</p>
 
           {/* Small paragraph */}
-          <p className="text-gray-600 text-sm md:text-base">
+          <p className="text-gray-600 text-justify text-sm md:text-base">
             We ensure a balance between learning and play to foster overall
             development.
           </p>

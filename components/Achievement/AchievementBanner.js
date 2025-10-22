@@ -43,13 +43,13 @@ export default function AchievementBanner() {
 
           {/* Paragraphs */}
           <div className="space-y-4 mt-3">
-            <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-200 text-justify text-sm sm:text-base leading-relaxed">
               At MGIS, achievement is not just measured by academic success but
               by the overall growth of an individual. Our focus is on creating
               an enjoyable learning environment that encourages children to
               explore and express their talents to the fullest.
             </p>
-            <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-200 text-justify text-sm sm:text-base leading-relaxed">
               Every child deserves the chance to experience success to promote
               self-esteem and nurture curiosity, fostering exploration as a key
               part of learning from their surroundings.

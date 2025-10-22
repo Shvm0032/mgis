@@ -58,7 +58,7 @@ export default function OurAlumni() {
                 owns a Youtube Channel named DG)
               </p>
             </div>
-            <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-200 text-justify text-sm sm:text-base leading-relaxed">
               Few words about School:- School is the first and foremost place
               where children try to make new friends. Also, students will learn
               how to be a part of the team. MGIS was one of the best school days
