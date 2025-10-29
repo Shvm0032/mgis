@@ -1,4 +1,3 @@
-// layout.js (Server Component)
 import './globals.css';
 import { Poppins } from 'next/font/google';
 import Header from '@/components/Header';
@@ -14,19 +13,16 @@ export const metadata = {
   title: 'Mahatma Gandhi International School',
   description: '',
   icons: {
-    icon: '/Assets/logo/android.png',
-    shortcut: '/favicon.ico',
-    apple: '/Assets/logo/apple-icon.png',
+    icon: '/favicon.ico',
   },
 };
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        {/* Loader as Client Component */}
         <Loader />
-
         <Header />
         <main>{children}</main>
         <Footer />

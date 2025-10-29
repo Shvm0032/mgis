@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X, Box, ArrowUp, ChevronDown, ChevronUp } from "lucide-react";
 import {
@@ -82,51 +83,51 @@ export default function Header() {
               {/* Phone */}
               <div className="flex items-center gap-2">
                 <FaPhoneAlt />
-                <a href="tel:+919933225511" className="hover:text-gray-300">
+                <Link href="tel:+919933225511" className="hover:text-gray-300">
                   +91-99332 25511
-                </a>
+                </Link>
               </div>
 
               {/* Email */}
               <div className="flex items-center gap-2">
                 <FaEnvelope />
-                <a
+                <Link
                   href="mailto:mgispb@gmail.com"
                   className="hover:text-gray-300"
                 >
                   mgispb@gmail.com
-                </a>
+                </Link>
               </div>
             </div>
 
             {/* Right Section - Social Links */}
             <div className="flex items-center gap-3">
-              <a
+              <Link
                 href="https://www.facebook.com/mgispb1/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gray-300"
               >
                 <FaFacebookF />
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gray-300"
               >
                 <FaTwitter />
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="https://www.instagram.com/mgis_pb/#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gray-300"
               >
                 <FaInstagram />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -136,14 +137,14 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 relative">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <a href="/">
+              <Link href="/">
                 <Image
                   src="/Assets/logo/mgis-logo-main.png"
                   alt="MGIS Logo"
                   width={200}
                   height={60}
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Menu */}
@@ -158,7 +159,7 @@ export default function Header() {
                   onMouseLeave={() => item.submenu && setActiveDropdown(null)}
                 >
                   {/* Parent Link */}
-                  <a
+                  <Link
                     href={item.href}
                     className="flex items-center gap-1 text-gray-700 hover:text-[#00306E] font-medium transition-colors"
                   >
@@ -169,19 +170,19 @@ export default function Header() {
                       ) : (
                         <ChevronDown size={16} />
                       ))}
-                  </a>
+                  </Link>
 
                   {/* Dropdown */}
                   {item.submenu && activeDropdown === item.name && (
                     <div className="absolute left-0 top-full bg-white shadow-md mt-0 pt-5 pb-5 px-5 min-w-[200px] rounded overflow-hidden">
                       {item.submenu.map((sub, subIdx) => (
-                        <a
+                        <Link
                           key={subIdx}
                           href={sub.href}
                           className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                         >
                           {sub.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -214,13 +215,13 @@ export default function Header() {
                 <div key={idx}>
                   {/* Parent menu - link + dropdown */}
                   <div className="flex justify-between items-center w-full">
-                    <a
+                    <Link
                       href={item.href}
                       className="flex-1 text-gray-700 font-medium py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                     {item.submenu && (
                       <button
                         onClick={() =>
@@ -243,14 +244,14 @@ export default function Header() {
                   {item.submenu && activeDropdown === item.name && (
                     <div className="pl-4 flex flex-col gap-1">
                       {item.submenu.map((sub, subIdx) => (
-                        <a
+                        <Link
                           key={subIdx}
                           href={sub.href}
                           className="block py-1 text-gray-600 hover:text-[#00306E] font-medium"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {sub.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}

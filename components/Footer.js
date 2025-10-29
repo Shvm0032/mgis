@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   FaFacebookF,
   FaInstagram,
@@ -26,12 +27,12 @@ export default function Footer() {
             Enquiry Now about Admissions
           </h2>
         </div>
-        <a
+        <Link
           href="/contact"
           className="mt-4 md:mt-0 inline-block px-6 py-2 border border-white rounded hover:bg-white hover:text-[#d60a3c] transition"
         >
           Contact Us →
-        </a>
+        </Link>
       </div>
 
       {/* Footer Links & Newsletter */}
@@ -41,19 +42,19 @@ export default function Footer() {
           <h3 className="font-bold text-lg mb-4">About Us</h3>
           <ul className="space-y-2 text-gray-300">
             <li>
-              <a href="/">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="/about-us">About Us</a>
+              <Link href="/about-us">About Us</Link>
             </li>
             <li>
-              <a href="/alumni">Alumni</a>
+              <Link href="/alumni">Alumni</Link>
             </li>
             <li>
-              <a href="/academics">Academics</a>
+              <Link href="/academics">Academics</Link>
             </li>
             <li>
-              <a href="/student-life">Student Life</a>
+              <Link href="/student-life">Student Life</Link>
             </li>
           </ul>
         </div>
@@ -63,16 +64,16 @@ export default function Footer() {
           <h3 className="font-bold text-lg mb-4">Useful Links</h3>
           <ul className="space-y-2 text-gray-300">
             <li>
-              <a href="/boarding">Boarding</a>
+              <Link href="/boarding">Boarding</Link>
             </li>
             <li>
-              <a href="/admission">Admissions</a>
+              <Link href="/admission">Admissions</Link>
             </li>
             <li>
-              <a href="/academics">Academics</a>
+              <Link href="/academics">Academics</Link>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </div>
@@ -86,12 +87,12 @@ export default function Footer() {
             <div className="bg-white text-[#0E293E] p-2 rounded-full flex items-center justify-center">
               <FaPhone className="text-md" />
             </div>
-            <a
+            <Link
               href="tel:+919933225511"
               className="text-gray-300 hover:text-[#d60a3c] transition"
             >
               +91-99332 25511
-            </a>
+            </Link>
           </div>
 
           {/* Email */}
@@ -99,12 +100,12 @@ export default function Footer() {
             <div className="bg-white text-[#0E293E] p-2 rounded-full flex items-center justify-center">
               <FaEnvelope className="text-md" />
             </div>
-            <a
+            <Link
               href="mailto:mgispb@gmail.com"
               className="text-gray-300 hover:text-[#d60a3c] transition"
             >
               mgispb@gmail.com
-            </a>
+            </Link>
           </div>
 
           {/* Address */}
@@ -124,14 +125,14 @@ export default function Footer() {
       {/* Footer Bottom */}
       <div className="border-t border-gray-700 py-4 text-center text-gray-100 text-sm">
         &copy; 2022 Mahatma Gandhi International School. Design & Developed by{' '}
-        <a
+        <Link
           href="https://rankmantra.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#D91142] hover:text-white font-semibold hover:underline transition-colors"
         >
           RankMantra
-        </a>
+        </Link>
       </div>
     </footer>
   );
